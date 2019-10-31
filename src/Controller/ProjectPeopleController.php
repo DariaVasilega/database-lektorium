@@ -17,6 +17,8 @@ class ProjectPeopleController extends AbstractController
 {
     /**
      * @Route("/", name="project_people_index", methods={"GET"})
+     * @param ProjectPeopleRepository $projectPeopleRepository
+     * @return Response
      */
     public function index(ProjectPeopleRepository $projectPeopleRepository): Response
     {
@@ -50,6 +52,8 @@ class ProjectPeopleController extends AbstractController
 
     /**
      * @Route("/{id}", name="project_people_show", methods={"GET"})
+     * @param ProjectPeople $projectPerson
+     * @return Response
      */
     public function show(ProjectPeople $projectPerson): Response
     {
@@ -60,6 +64,9 @@ class ProjectPeopleController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="project_people_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param ProjectPeople $projectPerson
+     * @return Response
      */
     public function edit(Request $request, ProjectPeople $projectPerson): Response
     {
@@ -80,6 +87,9 @@ class ProjectPeopleController extends AbstractController
 
     /**
      * @Route("/{id}", name="project_people_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param ProjectPeople $projectPerson
+     * @return Response
      */
     public function delete(Request $request, ProjectPeople $projectPerson): Response
     {
