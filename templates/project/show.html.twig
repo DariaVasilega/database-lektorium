@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Project</h1>
 
-    <table class="table">
+    <table class="table table-sm table-dark">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -22,9 +22,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('project_index') }}">back to list</a>
-
-    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
-
+    <a class="btn btn-dark" href="{{ path('project_index') }}" role="button">Back to list</a>
+    <a class="btn btn-dark" href="{{ path('project_edit', {'id': project.id}) }}" role="button">Edit</a>
     {{ include('project/_delete_form.html.twig') }}
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block body %}
     <h1>ProjectPeople index</h1>
 
-    <table class="table">
+    <table class="table table-sm table-dark">
         <thead>
             <tr>
                 <th>Id</th>
@@ -21,8 +21,8 @@
                 <td>{{ project_person.Type }}</td>
                 <td>{{ project_person.Responsibility }}</td>
                 <td>
-                    <a href="{{ path('project_people_show', {'id': project_person.id}) }}">show</a>
-                    <a href="{{ path('project_people_edit', {'id': project_person.id}) }}">edit</a>
+                    <a class="btn btn-dark" href="{{ path('project_people_show', {'id': project_person.id}) }}" role="button">show</a>
+                    <a class="btn btn-dark" href="{{ path('project_people_edit', {'id': project_person.id}) }}" role="button">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('project_people_new') }}">Create new</a>
+    <a class="btn btn-dark" href="{{ path('project_people_new') }}" role="button">Create new</a>
 {% endblock %}

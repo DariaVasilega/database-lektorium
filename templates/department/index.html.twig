@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Department index</h1>
 
-    <table class="table">
+    <table class="table table-sm table-dark">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,8 +23,8 @@
                 <td>{{ department.Description }}</td>
                 <td>{{ department.TeamLead }}</td>
                 <td>
-                    <a href="{{ path('department_show', {'id': department.id}) }}">show</a>
-                    <a href="{{ path('department_edit', {'id': department.id}) }}">edit</a>
+                    <a class="btn btn-dark" href="{{ path('department_show', {'id': department.id}) }}" role="button">Show</a>
+                    <a class="btn btn-dark" href="{{ path('department_edit', {'id': department.id}) }}" role="button">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('department_new') }}">Create new</a>
+    <a class="btn btn-dark" href="{{ path('department_new') }}" role="button">Create new</a>
+
 {% endblock %}
