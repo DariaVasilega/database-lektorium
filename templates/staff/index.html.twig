@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Staff index{% endblock %}
+
+{% block body %}
+    <h1>Staff index</h1>
+
+    <table class="table table-sm table-dark">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>CreatedAt</th>
+                <th>Skills</th>
+                <th>Comments</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for staff in staff %}
+            <tr>
+                <td>{{ staff.id }}</td>
+                <td>{{ staff.FullName }}</td>
+                <td>{{ staff.Email }}</td>
+                <td>{{ staff.Phone }}</td>
+                <td>{{ staff.CreatedAt ? staff.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ staff.Skills }}</td>
+                <td>{{ staff.Comments }}</td>
+                <td>
+                    <a class="btn btn-dark" href="{{ path('staff_show', {'id': staff.id}) }}" role="button">show</a>
+                    <a class="btn btn-dark" href="{{ path('staff_edit', {'id': staff.id}) }}" role="button">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-dark" href="{{ path('staff_new') }}" role="button">Create new</a>
+{% endblock %}
